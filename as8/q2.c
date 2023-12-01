@@ -14,11 +14,11 @@ int main() {
     if (p > 0) {
         printf("Passing value to child\n");
         write(fd[1], "hello\n", 6);
-        sleep(3);
     } else {
         printf("Child printing received value\n");
         n = read(fd[0], buf, 100);
         printf("%s\n", buf);
         write(1, buf, n);
     }
+    wait(NULL);
 }
